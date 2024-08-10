@@ -54,7 +54,12 @@
       "group": "Endpoints",
       "pages": [
         "essentials/markdown",
-        "essentials/text"
+        "essentials/text",
+        "essentials/code",
+        "essentials/images",
+        "essentials/settings",
+        "essentials/navigation",
+        "essentials/reusable-snippets"
       ]
     },
     {

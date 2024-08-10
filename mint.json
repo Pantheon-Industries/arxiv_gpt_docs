@@ -38,6 +38,11 @@
       "url": "https://mintlify.com/docs"
     },
     {
+      "name": "Questions?",
+      "icon": "discord",
+      "url": "https://discord.gg/your-discord-link"
+    },
+    {
       "name": "Community",
       "icon": "slack",
       "url": "https://mintlify.com/community"

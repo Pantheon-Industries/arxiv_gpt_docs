@@ -1,71 +1,124 @@
 ---
 title: Introduction
-description: 'Welcome to the home of your new documentation'
+description: 'Welcome to financial datasets, a developer-friendly stock market API.'
 ---
 
-<img
-  className="block dark:hidden"
-  src="/images/hero-light.svg"
-  alt="Hero Light"
-/>
-<img
-  className="hidden dark:block"
-  src="/images/hero-dark.svg"
-  alt="Hero Dark"
-/>
+## Introduction
 
-## Setting up
+Welcome to financial datasets, a developer-friendly stock market API.
 
-The first step to world-class documentation is setting up your editing environments.
+### 📊 Overview
 
-<CardGroup cols={2}>
-  <Card
-    title="Edit Your Docs"
-    icon="pen-to-square"
-    href="https://mintlify.com/docs/quickstart"
-  >
-    Get your docs set up locally for easy development
-  </Card>
-  <Card
-    title="Preview Changes"
-    icon="image"
-    href="https://mintlify.com/docs/development"
-  >
-    Preview your changes before you push to make sure they're perfect
-  </Card>
-</CardGroup>
+We have data for **16,000+** public companies, going back **30+** years.
 
-## Make it yours
+You can use our data to power your AI financial agents, portfolio management tools, stock analysis platforms, quantitative trading algorithms, and more.
 
-Update your docs to your brand and add valuable content for the best user conversion.
+You are welcome to save any data that you receive from our API. Our platform is built by developers for developers.
 
-<CardGroup cols={2}>
-  <Card
-    title="Customize Style"
-    icon="palette"
-    href="https://mintlify.com/docs/settings/global"
-  >
-    Customize your docs to your company's colors and brands
-  </Card>
-  <Card
-    title="Reference APIs"
-    icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
-  >
-    Automatically generate endpoints from an OpenAPI spec
-  </Card>
-  <Card
-    title="Add Components"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/components/accordion"
-  >
-    Build interactive features and designs to guide your users
-  </Card>
-  <Card
-    title="Get Inspiration"
-    icon="stars"
-    href="https://mintlify.com/customers"
-  >
-    Check out our showcase of our favorite documentation
-  </Card>
-</CardGroup>
+### 🛠️ Getting Started
+
+Please create an account and get your API key at [financialdatasets.ai](https://financialdatasets.ai).
+
+You will use the API key to authenticate your requests. The full list of available tickers is [here](https://financialdatasets.ai/tickers).
+
+For testing purposes, data for the following tickers is free: AAPL, GOOGL, MSFT, NVDA, TSLA.
+
+There are only 3 steps for making a successful API call:
+
+1. Add your API key to the header of the request as `X-API-KEY`.
+2. Add query params like `ticker`, `period` and `limit` to filter the data.
+3. Execute the API request.
+
+> **Note:** `ticker` and `period` are required. By default, `limit` is `10`.
+
+### 🧑‍💻 Examples
+
+<Tabs>
+  <TabItem value="income-statements" label="Income Statements" default>
+
+python
+import requests
+add your API key to the headers
+headers = {
+"X-API-KEY": "your_api_key_here"
+}
+set your query params
+ticker = 'NVDA' # stock ticker
+period = 'annual' # possible values are 'annual', 'quarterly', or 'ttm'
+limit = 30 # number of statements to return
+create the URL
+url = (
+f'https://api.financialdatasets.ai/financials/income-statements'
+f'?ticker={ticker}'
+f'&period={period}'
+f'&limit={limit}'
+)
+make API request
+response = requests.get(url, headers=headers)
+parse income_statements from the response
+income_statements = response.json().get('income_statements')
+
+
+  </TabItem>
+  <TabItem value="balance-sheets" label="Balance Sheets">
+
+python
+import requests
+add your API key to the headers
+headers = {
+"X-API-KEY": "your_api_key_here"
+}
+set your query params
+ticker = 'NVDA' # stock ticker
+period = 'annual' # possible values are 'annual', 'quarterly', or 'ttm'
+limit = 30 # number of statements to return
+create the URL
+url = (
+f'https://api.financialdatasets.ai/financials/balance-sheets'
+f'?ticker={ticker}'
+f'&period={period}'
+f'&limit={limit}'
+)
+make API request
+response = requests.get(url, headers=headers)
+parse balance_sheets from the response
+balance_sheets = response.json().get('balance_sheets')
+
+
+
+  </TabItem>
+  <TabItem value="cash-flow-statements" label="Cash Flow Statements">
+
+python
+import requests
+add your API key to the headers
+headers = {
+"X-API-KEY": "your_api_key_here"
+}
+set your query params
+ticker = 'NVDA' # stock ticker
+period = 'annual' # possible values are 'annual', 'quarterly', or 'ttm'
+limit = 30 # number of statements to return
+create the URL
+url = (
+f'https://api.financialdatasets.ai/financials/cash-flow-statements'
+f'?ticker={ticker}'
+f'&period={period}'
+f'&limit={limit}'
+)
+make API request
+response = requests.get(url, headers=headers)
+parse cash_flow_statements from the response
+cash_flow_statements = response.json().get('cash_flow_statements')
+
+
+  </TabItem>
+</Tabs>
+
+### Feedback
+
+Please join our [Discord](https://discord.gg/86efjr3a6f) community, hang out, and tell us how we can improve.
+
+We love developer feedback ❤️
+
+This MDX file includes an introduction, overview, getting started instructions, and examples with tabs for different types of financial statements. It also includes a feedback section with a link to a Discord community.

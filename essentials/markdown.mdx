@@ -1,88 +1,68 @@
 ---
-title: 'Markdown Syntax'
-description: 'Text, title, and styling in standard markdown'
-icon: 'text-size'
+title: Get Paper as Text
+description: 'Retrieve a text version of an arXiv paper'
 ---
 
-## Titles
+# Get Paper as Text
 
-Best used for section headers.
+Get a plain text version of an arXiv paper.
 
-```md
-## Titles
-```
+## Endpoint
 
-### Subtitles
+GET /papers/text
 
-Best use to subsection headers.
+## Authorization
 
-```md
-### Subtitles
-```
+| Name | Type | In | Description |
+|------|------|----| ------------|
+| X-API-Key | string | header | required |
 
-<Tip>
+API key for authentication.
 
-Each **title** and **subtitle** creates an anchor and also shows up on the table of contents on the right.
+## Query Parameters
 
-</Tip>
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| paper_id | string | required | The arXiv ID of the paper |
+| max_pages | integer | optional | Maximum number of pages to return (default: all) |
 
-## Text Formatting
+## Response
 
-We support most markdown formatting. Simply add `**`, `_`, or `~` around text to format it.
+**200 - application/json**
 
-| Style         | How to write it   | Result          |
-| ------------- | ----------------- | --------------- |
-| Bold          | `**bold**`        | **bold**        |
-| Italic        | `_italic_`        | _italic_        |
-| Strikethrough | `~strikethrough~` | ~strikethrough~ |
+```json
+{
+  "paper_id": "string",
+  "content": "string",
+  "total_pages": 0,
+  "returned_pages": 0,
+  "format": "text"
+}
 
-You can combine these. For example, write `**_bold and italic_**` to get **_bold and italic_** text.
+## Example
 
-You need to use HTML to write superscript and subscript text. That is, add `<sup>` or `<sub>` around your text.
+import requests
 
-| Text Size   | How to write it          | Result                 |
-| ----------- | ------------------------ | ---------------------- |
-| Superscript | `<sup>superscript</sup>` | <sup>superscript</sup> |
-| Subscript   | `<sub>subscript</sub>`   | <sub>subscript</sub>   |
+headers = {
+    "X-API-Key": "your_api_key_here"
+}
 
-## Linking to Pages
+params = {
+    "paper_id": "2408.01800",
+    "max_pages": 5
+}
 
-You can add a link by wrapping text in `[]()`. You would write `[link to google](https://google.com)` to [link to google](https://google.com).
+url = "https://boiling-savannah-93394-fe89b9dd363e.herokuapp.com/papers/text"
 
-Links to pages in your docs need to be root-relative. Basically, you should include the entire folder path. For example, `[link to text](/writing-content/text)` links to the page "Text" in our components section.
+response = requests.get(url, headers=headers, params=params)
 
-Relative links like `[link to text](../text)` will open slower because we cannot optimize them as easily.
-
-## Blockquotes
-
-### Singleline
-
-To create a blockquote, add a `>` in front of a paragraph.
-
-> Dorothy followed her through many of the beautiful rooms in her castle.
-
-```md
-> Dorothy followed her through many of the beautiful rooms in her castle.
-```
-
-### Multiline
-
-> Dorothy followed her through many of the beautiful rooms in her castle.
->
-> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
-
-```md
-> Dorothy followed her through many of the beautiful rooms in her castle.
->
-> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
-```
-
-### LaTeX
-
-Mintlify supports [LaTeX](https://www.latex-project.org) through the Latex component.
-
-<Latex>8 x (vk x H1 - H2) = (0,1)</Latex>
-
-```md
-<Latex>8 x (vk x H1 - H2) = (0,1)</Latex>
-```
+if response.status_code == 200:
+    data = response.json()
+    print(f"Paper ID: {data['paper_id']}")
+    print(f"Content: {data['content'][:500]}...")  # Print first 500 characters
+    print(f"Total Pages: {data['total_pages']}")
+    print(f"Returned Pages: {data['returned_pages']}")
+    print(f"Format: {data['format']}")
+else:
+    print(f"Error: {response.status_code}")
+    print(response.json())

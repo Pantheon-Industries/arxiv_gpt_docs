@@ -1,124 +1,93 @@
 ---
 title: Introduction
-description: 'Welcome to financial datasets, a developer-friendly stock market API.'
+description: 'Welcome to the arXiv Machine-Readable Paper API documentation'
 ---
 
-## Introduction
+<img
+  className="block dark:hidden"
+  src="/images/arxiv-api-light.svg"
+  alt="arXiv API Light"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/arxiv-api-dark.svg"
+  alt="arXiv API Dark"
+/>
 
-Welcome to financial datasets, a developer-friendly stock market API.
+## Overview
 
-### 📊 Overview
+Welcome to the arXiv Machine-Readable Paper API, a developer-friendly tool for converting academic papers into accessible formats.
 
-We have data for **16,000+** public companies, going back **30+** years.
+We provide access to 1,000,000+ arXiv papers, with data going back 30+ years.
 
-You can use our data to power your AI financial agents, portfolio management tools, stock analysis platforms, quantitative trading algorithms, and more.
+You can use our API to power your AI research assistants, literature review tools, academic search engines, and more.
 
-You are welcome to save any data that you receive from our API. Our platform is built by developers for developers.
+You are welcome to save and use any data that you receive from our API. Our platform is built by developers for developers.
 
-### 🛠️ Getting Started
+## Getting Started
 
-Please create an account and get your API key at [financialdatasets.ai](https://financialdatasets.ai).
+Please create an account and get your API key at [arxiv-api.example.com](https://arxiv-api.example.com).
 
-You will use the API key to authenticate your requests. The full list of available tickers is [here](https://financialdatasets.ai/tickers).
+You will use the API key to authenticate your requests. The full list of available paper IDs is [here](https://arxiv-api.example.com/paper-ids).
 
-For testing purposes, data for the following tickers is free: AAPL, GOOGL, MSFT, NVDA, TSLA.
+For testing purposes, data for the following paper IDs is free: 2101.00123, 2102.04567, 2103.08910, 2104.11213, 2105.14151.
 
 There are only 3 steps for making a successful API call:
 
 1. Add your API key to the header of the request as `X-API-KEY`.
-2. Add query params like `ticker`, `period` and `limit` to filter the data.
+2. Add query params like `paper_id`, `format`, and `max_pages` to filter the data.
 3. Execute the API request.
 
-> **Note:** `ticker` and `period` are required. By default, `limit` is `10`.
+Note: `paper_id` and `format` are required. By default, `max_pages` is set to all pages.
 
-### 🧑‍💻 Examples
+<CardGroup cols={2}>
+  <Card
+    title="Explore Endpoints"
+    icon="code"
+    href="/endpoints/text"
+  >
+    Learn how to use our Text and Markdown conversion endpoints
+  </Card>
+  <Card
+    title="View Examples"
+    icon="file-code"
+    href="/examples"
+  >
+    See code samples in various programming languages
+  </Card>
+</CardGroup>
 
-<Tabs>
-  <TabItem value="income-statements" label="Income Statements" default>
+## Make it yours
 
-python
-import requests
-add your API key to the headers
-headers = {
-"X-API-KEY": "your_api_key_here"
-}
-set your query params
-ticker = 'NVDA' # stock ticker
-period = 'annual' # possible values are 'annual', 'quarterly', or 'ttm'
-limit = 30 # number of statements to return
-create the URL
-url = (
-f'https://api.financialdatasets.ai/financials/income-statements'
-f'?ticker={ticker}'
-f'&period={period}'
-f'&limit={limit}'
-)
-make API request
-response = requests.get(url, headers=headers)
-parse income_statements from the response
-income_statements = response.json().get('income_statements')
+Integrate our API into your workflow and leverage academic content like never before.
 
-
-  </TabItem>
-  <TabItem value="balance-sheets" label="Balance Sheets">
-
-python
-import requests
-add your API key to the headers
-headers = {
-"X-API-KEY": "your_api_key_here"
-}
-set your query params
-ticker = 'NVDA' # stock ticker
-period = 'annual' # possible values are 'annual', 'quarterly', or 'ttm'
-limit = 30 # number of statements to return
-create the URL
-url = (
-f'https://api.financialdatasets.ai/financials/balance-sheets'
-f'?ticker={ticker}'
-f'&period={period}'
-f'&limit={limit}'
-)
-make API request
-response = requests.get(url, headers=headers)
-parse balance_sheets from the response
-balance_sheets = response.json().get('balance_sheets')
-
-
-
-  </TabItem>
-  <TabItem value="cash-flow-statements" label="Cash Flow Statements">
-
-python
-import requests
-add your API key to the headers
-headers = {
-"X-API-KEY": "your_api_key_here"
-}
-set your query params
-ticker = 'NVDA' # stock ticker
-period = 'annual' # possible values are 'annual', 'quarterly', or 'ttm'
-limit = 30 # number of statements to return
-create the URL
-url = (
-f'https://api.financialdatasets.ai/financials/cash-flow-statements'
-f'?ticker={ticker}'
-f'&period={period}'
-f'&limit={limit}'
-)
-make API request
-response = requests.get(url, headers=headers)
-parse cash_flow_statements from the response
-cash_flow_statements = response.json().get('cash_flow_statements')
-
-
-  </TabItem>
-</Tabs>
-
-### Feedback
-
-Please join our [Discord](https://discord.gg/86efjr3a6f) community, hang out, and tell us how we can improve.
-
-We love developer feedback ❤️
-
-This MDX file includes an introduction, overview, getting started instructions, and examples with tabs for different types of financial statements. It also includes a feedback section with a link to a Discord community.
+<CardGroup cols={2}>
+  <Card
+    title="Text Analysis"
+    icon="magnifying-glass-chart"
+    href="/use-cases/text-analysis"
+  >
+    Learn how to perform large-scale analysis on academic papers
+  </Card>
+  <Card
+    title="Image Extraction"
+    icon="image"
+    href="/use-cases/image-extraction"
+  >
+    Discover how to work with automatically extracted and stored images
+  </Card>
+  <Card
+    title="Research Assistant"
+    icon="robot"
+    href="/use-cases/research-assistant"
+  >
+    Build an AI-powered research assistant using our API
+  </Card>
+  <Card
+    title="Community Showcase"
+    icon="stars"
+    href="/showcase"
+  >
+    Check out projects built by our community using the API
+  </Card>
+</CardGroup>

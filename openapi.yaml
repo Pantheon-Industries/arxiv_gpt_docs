@@ -1,0 +1,145 @@
+openapi: 3.0.0
+info:
+  title: arXiv Machine-Readable Paper API
+  version: 1.0.0
+  description: An API for retrieving machine-readable versions of arXiv papers in text or markdown format.
+
+servers:
+  - url: https://boiling-savannah-93394-fe89b9dd363e.herokuapp.com
+
+paths:
+  /papers/text:
+    get:
+      summary: Retrieve a text version of an arXiv paper
+      parameters:
+        - name: paper_id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The arXiv ID of the paper
+          example: "2408.01800"
+        - name: max_pages
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+          description: Maximum number of pages to return (default all)
+      security:
+        - ApiKeyAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '402':
+          $ref: '#/components/responses/PaymentRequired'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /papers/markdown:
+    get:
+      summary: Retrieve a markdown version of an arXiv paper
+      parameters:
+        - name: paper_id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The arXiv ID of the paper
+          example: "2408.01800"
+        - name: max_pages
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+          description: Maximum number of pages to return (default all)
+      security:
+        - ApiKeyAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '402':
+          $ref: '#/components/responses/PaymentRequired'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+
+  schemas:
+    SuccessResponse:
+      type: object
+      properties:
+        paper_id:
+          type: string
+        content:
+          type: string
+        total_pages:
+          type: integer
+        returned_pages:
+          type: integer
+        format:
+          type: string
+          enum: [text, markdown]
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+          required:
+            - code
+            - message
+      required:
+        - error
+
+  responses:
+    BadRequest:
+      description: Invalid parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    PaymentRequired:
+      description: Insufficient funds or exceeded plan limits
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Paper not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'

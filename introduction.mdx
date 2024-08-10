@@ -1,132 +1,25 @@
 ---
 title: Introduction
-description: 'Welcome to the arXiv Machine-Readable Paper API documentation'
+description: 'Welcome to the arXivGPT Machine-Readable Paper API documentation'
 ---
 
 <img
   className="block dark:hidden"
-  src="/images/arxiv-api-light.svg"
+  src="/images/hero-light.png"
   alt="arXiv API Light"
 />
 <img
   className="hidden dark:block"
-  src="/images/arxiv-api-dark.svg"
+  src="/images/hero-light.png"
   alt="arXiv API Dark"
 />
 
-## Overview
+## 👋 Overview
 
-Welcome to the arXiv Machine-Readable Paper API, a powerful tool for retrieving machine-readable versions of arXiv papers in text or markdown format.
+Welcome to the arXivGPT Machine-Readable Paper API, which can be used for every arXiv paper. It is possible to convert the PDF to Markdown or text to empower your AI agents.
 
-Our API provides access to a vast collection of academic papers from arXiv, allowing you to easily integrate scholarly content into your applications, research tools, and analysis pipelines.
+## 🚀 Getting Started
 
-## Getting Started
+To use the API, you'll need an API key which you can get here #todo add url. Once you have your key, you can start making requests to our endpoints.
 
-To use the API, you'll need an API key. Once you have your key, you can start making requests to our endpoints.
-
-### Authentication
-
-Include your API key in the header of each request:
-
-X-API-Key: YOUR_API_KEY_HERE
-
-### Base URL
-
-https://boiling-savannah-93394-fe89b9dd363e.herokuapp.com
-
-<CardGroup cols={2}>
-  <Card
-    title="Text Endpoint"
-    icon="file-lines"
-    href="/endpoints/text"
-  >
-    Learn how to retrieve papers in plain text format
-  </Card>
-  <Card
-    title="Markdown Endpoint"
-    icon="markdown"
-    href="/endpoints/markdown"
-  >
-    Discover how to get papers in markdown format
-  </Card>
-</CardGroup>
-
-## Key Features
-
-- Convert arXiv papers to plain text or markdown formats
-- Flexible content retrieval with option to specify maximum pages
-- Secure API key authentication
-- Comprehensive error handling
-
-## Quick Start Guide
-
-Here's a quick example of how to use our API:
-
-```python
-import requests
-
-api_key = "YOUR_API_KEY_HERE"
-paper_id = "2408.01800"
-max_pages = 5
-
-headers = {
-    "X-API-Key": api_key
-}
-
-url = f"https://boiling-savannah-93394-fe89b9dd363e.herokuapp.com/papers/text?paper_id={paper_id}&max_pages={max_pages}"
-
-response = requests.get(url, headers=headers)
-
-if response.status_code == 200:
-    data = response.json()
-    print(f"Paper ID: {data['paper_id']}")
-    print(f"Content: {data['content'][:500]}...")  # Print first 500 characters
-    print(f"Total Pages: {data['total_pages']}")
-    print(f"Returned Pages: {data['returned_pages']}")
-    print(f"Format: {data['format']}")
-else:
-    print(f"Error: {response.status_code}")
-    print(response.json())
-
-<CardGroup cols={2}>
-  <Card
-    title="Error Handling"
-    icon="triangle-exclamation"
-    href="/error-handling"
-  >
-    Learn about different error responses and how to handle them
-  </Card>
-  <Card
-    title="Best Practices"
-    icon="star"
-    href="/best-practices"
-  >
-    Discover tips and tricks for efficient API usage
-  </Card>
-</CardGroup>
-Use Cases
-Our API can power a wide range of applications and research tools:
-
-Text analysis and natural language processing of academic papers
-Building research assistants and literature review tools
-Creating searchable databases of scientific literature
-Developing AI models for academic text analysis
-
-<Card
-title="Explore Use Cases"
-icon="lightbulb"
-href="/use-cases"
-
-
-Dive deeper into potential applications of our API
-</Card>
-Support
-If you encounter any issues or have questions, please don't hesitate to reach out to our support team.
-<Card
-title="Contact Support"
-icon="headset"
-href="/support"
-
-
-Get help from our dedicated support team
-</Card>
+#todo steps to do for using the api

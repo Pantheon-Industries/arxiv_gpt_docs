@@ -11,8 +11,8 @@
     "light": "#07C983",
     "dark": "#0D9373",
     "anchors": {
-      "from": "#b31b1b",  // Updated color for documentation links
-      "to": "#b31b1b"     // Updated color for documentation links
+      "from": "#b31b1b",
+      "to": "#b31b1b"
     }
   },
   "topbarLinks": [
@@ -40,7 +40,7 @@
     {
       "name": "Questions?",
       "icon": "discord",
-      "url": "https://discord.gg/your-discord-link"
+      "url": "https://discord.gg/86efjr3a6f"
     }
   ],
   "navigation": [

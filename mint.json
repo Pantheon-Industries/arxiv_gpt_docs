@@ -50,12 +50,5 @@
   ],
   "footerSocials": {
     "x": "https://x.com/arXivGPT"
-  },
-  "api": {
-    "baseUrl": "https://arxivgpt.p.rapidapi.com",
-    "auth": {
-      "method": "key",
-      "name": "x-rapidapi-key"
-    }
   }
 }

@@ -5,7 +5,7 @@ info:
   description: An API for retrieving machine-readable versions of arXiv papers in text or markdown format.
 
 servers:
-  - url: https://example.com/api/v1
+  - url: https://arxivgpt.p.rapidapi.com
 
 paths:
   /papers/text:
@@ -19,14 +19,8 @@ paths:
             type: string
           description: The arXiv ID of the paper
           example: "2408.01800"
-        - name: max_pages
-          in: query
-          required: false
-          schema:
-            type: integer
-            minimum: 1
-          description: Maximum number of pages to return (default all)
       security:
+        - RapidAPI: []
         - ApiKeyAuth: []
       responses:
         '200':
@@ -49,14 +43,8 @@ paths:
             type: string
           description: The arXiv ID of the paper
           example: "2408.01800"
-        - name: max_pages
-          in: query
-          required: false
-          schema:
-            type: integer
-            minimum: 1
-          description: Maximum number of pages to return (default all)
       security:
+        - RapidAPI: []
         - ApiKeyAuth: []
       responses:
         '200':
@@ -70,6 +58,10 @@ paths:
 
 components:
   securitySchemes:
+    RapidAPI:
+      type: apiKey
+      in: header
+      name: x-rapidapi-key
     ApiKeyAuth:
       type: apiKey
       in: header

@@ -1,0 +1,21 @@
+---
+openapi: get /papers/text
+---
+
+## RapidAPI Usage
+
+To use this API via RapidAPI, follow these steps:
+
+1. Sign up for a RapidAPI account if you haven't already.
+2. Subscribe to our API on the RapidAPI marketplace.
+3. Use the RapidAPI-specific headers in your requests.
+
+
+## Example Request
+
+```curl
+curl --request GET \
+  --url 'https://arxivgpt.p.rapidapi.com/papers/text?paper_id=<PAPER_ID>&max_pages=<MAX_PAGES>' \
+  --header 'X-RapidAPI-Key: YOUR_RAPIDAPI_KEY' \
+  --header 'X-RapidAPI-Host: arxivgpt.p.rapidapi.com'
+```

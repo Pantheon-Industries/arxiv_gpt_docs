@@ -18,29 +18,14 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "https://discord.gg/86efjr3a6f"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
     "url": "https://dashboard.mintlify.com"
   },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    },
-    {
-      "name": "OpenAPI",
-      "url": "openapi"
-    }
-  ],
   "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
     {
       "name": "Questions?",
       "icon": "discord",
@@ -57,39 +42,17 @@
     {
       "group": "Endpoints",
       "pages": [
-        "essentials/markdown",
-        "essentials/text",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
-      ]
-    },
-    {
-      "group": "OpenAPI Documentation",
-      "pages": [
-        "openapi/introduction",
-        "openapi/authentication",
-        "openapi/endpoints"
+        "essentials/retrieve-a-text-version-of-an-arxiv-paper",
+        "essentials/retrieve-a-markdown-version-of-an-arxiv-paper"
       ]
     }
   ],
   "footerSocials": {
     "x": "https://x.com/arXivGPT"
+  },
+  "api": {
+    "playground": {
+      "mode": "hide"
+    }
   }
 }

@@ -1,26 +1,118 @@
 ---
 title: Introduction
-description: 'Welcome to the arXivGPT Machine-Readable Paper API documentation'
+description: 'Welcome to the arXivGPT Paper API, a developer-friendly solution for converting arXiv papers to Markdown or plain text formats.'
 icon: 'hand-wave'
 ---
 
 <img
   className="block dark:hidden"
   src="/images/hero-light.png"
-  alt="arXiv API Light"
+  alt="arXivGPT API Light Mode"
 />
 <img
   className="hidden dark:block"
-  src="/images/hero-light.png"
-  alt="arXiv API Dark"
+  src="/images/hero-dark.png"
+  alt="arXivGPT API Dark Mode"
 />
 
 ## 👋 Overview
 
-Welcome to the arXivGPT Machine-Readable Paper API, which can be used for every arXiv paper. It is possible to convert the PDF to Markdown or text to empower your AI agents.
+The arXivGPT Paper API offers a powerful solution for converting any arXiv paper into Markdown or plain text formats. Allowing you the following:
+
+- Power AI agents with structured scientific content
+- Build custom applications leveraging arXiv paper data
+- Enhance research workflows and data analysis
+- Explore and experiment with scientific literature in machine-readable formats
 
 ## 🚀 Getting Started
 
-To use the API, you'll need an API key which you can get here #todo add url. Once you have your key, you can start making requests to our endpoints.
+Our API is powered by RapidAPI, ensuring a smooth and secure integration process. Follow these simple steps to get started:
 
-#todo steps to do for using the api
+1. **Obtain API Credentials**: 
+   - Subscribe to our API and get your key from [RapidAPI](https://rapidapi.com/swift-api-swift-api-default/api/claude-3-haiku-ai).
+
+2. **Prepare Your Request**:
+   - Add your RapidAPI credentials to the request header:
+     - `X-API-Key`
+     - `x-rapidapi-host`
+     - `x-rapidapi-key`
+   - Include query parameters:
+     - `paper_id` (required): The arXiv paper identifier
+     - `num_pages` (optional): Number of pages to return
+
+3. **Make the API Call**:
+   - Choose between Markdown or plain text endpoints
+   - Execute your request and receive the converted paper data
+
+## 💻 Code Examples
+
+Here are sample code snippets to help you get started quickly:
+
+<CodeGroup>
+```python Markdown
+import requests
+
+url = "https://arxivgpt.p.rapidapi.com/papers/markdown/"
+querystring = {"paper_id": "2408.01800", "num_pages": "5"}
+headers = {
+    "X-API-Key": "<YOUR_X_API_KEY>",
+    "x-rapidapi-host": "<YOUR_RAPIDAPI_HOST>",
+    "x-rapidapi-key": "<YOUR_RAPIDAPI_KEY>"
+}
+
+response = requests.get(url, headers=headers, params=querystring)
+print(response.text)
+```
+
+```python Plain Text
+import requests
+
+url = "https://arxivgpt.p.rapidapi.com/papers/text/"
+querystring = {"paper_id": "2408.01800", "num_pages": "5"}
+headers = {
+    "X-API-Key": "<YOUR_X_API_KEY>",
+    "x-rapidapi-host": "<YOUR_RAPIDAPI_HOST>",
+    "x-rapidapi-key": "<YOUR_RAPIDAPI_KEY>"
+}
+
+response = requests.get(url, headers=headers, params=querystring)
+print(response.text)
+```
+</CodeGroup>
+
+## 📊 API Response
+
+Our API returns the converted paper content along with metadata. Here's a sample response structure:
+
+```json
+{
+  "paper_id": "2408.01800",
+  "content": "# Introduction\n\nThis is the converted paper content...",
+  "format": "markdown",
+  "pages_returned": 5,
+  "total_pages": 15
+}
+```
+
+## 🛠 Use Cases
+
+1. **Build AGI**: Power your AGI with structured scientific content
+1. **AI-Powered Literature Review**: Train models on structured paper data for automated summarization and analysis.
+2. **Custom Search Engines**: Build specialized search tools for scientific literature.
+3. **Data Visualization**: Create interactive visualizations of research trends and connections.
+4. **Accessibility Tools**: Convert papers to more accessible formats for screen readers or text-to-speech applications.
+
+## 📈 Pricing and Limits
+
+Visit our [RapidAPI page](https://rapidapi.com/swift-api-swift-api-default/api/claude-3-haiku-ai) for up-to-date information on:
+- Free tier limitations
+- Paid plan options
+- Rate limits and usage quotas
+
+## 🤝 Support and Feedback
+
+We're committed to providing an excellent developer experience:
+
+- Join our [Discord community](https://discord.gg/hTtb8wzgSQ) for real-time support and discussions.
+
+We love developer feedback and are constantly working to improve our API. Let us know how we can serve you better!

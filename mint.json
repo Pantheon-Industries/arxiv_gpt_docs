@@ -43,8 +43,7 @@
       "group": "Endpoints",
       "pages": [
         "essentials/retrieve-a-text-version-of-an-arxiv-paper",
-        "essentials/retrieve-a-markdown-version-of-an-arxiv-paper",
-        "essentials/test"
+        "essentials/retrieve-a-markdown-version-of-an-arxiv-paper"
       ]
     }
   ],

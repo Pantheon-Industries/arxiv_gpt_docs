@@ -1,5 +1,5 @@
 ---
-title: 'Retrieve a text version of an arXiv paper'
+title: 'Text'
 api: 'GET https://arxivgpt.p.rapidapi.com/papers/text/'
 ---
 
@@ -22,23 +22,3 @@ api: 'GET https://arxivgpt.p.rapidapi.com/papers/text/'
 <ParamField query="max_pages" type="integer">
   Maximum number of pages to return (optional)
 </ParamField>
-
-<ResponseField name="paper_id" type="string">
-  The ID of the retrieved paper
-</ResponseField>
-
-<ResponseField name="content" type="string">
-  The text content of the paper
-</ResponseField>
-
-<ResponseField name="total_pages" type="integer">
-  The total number of pages in the paper
-</ResponseField>
-
-<ResponseField name="returned_pages" type="integer">
-  The number of pages returned in this response
-</ResponseField>
-
-<ResponseField name="format" type="string">
-  The format of the content (in this case, "text")
-</ResponseField>

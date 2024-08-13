@@ -29,13 +29,12 @@ The arXivGPT Paper API offers a powerful solution for converting any arXiv paper
 Our API is powered by RapidAPI, ensuring a smooth and secure integration process. Follow these simple steps to get started:
 
 1. **Obtain API Credentials**: 
-   - Subscribe to our API and get your key from [RapidAPI](https://rapidapi.com/swift-api-swift-api-default/api/claude-3-haiku-ai).
+   - Subscribe to our API and get your key from [RapidAPI](https://rapidapi.com/maxhager28/api/arxivgpt).
 
 2. **Prepare Your Request**:
    - Add your RapidAPI credentials to the request header:
-     - `X-API-Key`
-     - `x-rapidapi-host`
      - `x-rapidapi-key`
+     - `x-rapidapi-host`
    - Include query parameters:
      - `paper_id` (required): The arXiv paper identifier
      - `num_pages` (optional): Number of pages to return
@@ -55,9 +54,8 @@ import requests
 url = "https://arxivgpt.p.rapidapi.com/papers/markdown/"
 querystring = {"paper_id": "2408.01800", "num_pages": "5"}
 headers = {
-    "X-API-Key": "<YOUR_X_API_KEY>",
-    "x-rapidapi-host": "<YOUR_RAPIDAPI_HOST>",
-    "x-rapidapi-key": "<YOUR_RAPIDAPI_KEY>"
+    "x-rapidapi-key": "<YOUR_RAPIDAPI_KEY>",
+    "x-rapidapi-host": "<YOUR_RAPIDAPI_HOST>"
 }
 
 response = requests.get(url, headers=headers, params=querystring)
@@ -70,9 +68,8 @@ import requests
 url = "https://arxivgpt.p.rapidapi.com/papers/text/"
 querystring = {"paper_id": "2408.01800", "num_pages": "5"}
 headers = {
-    "X-API-Key": "<YOUR_X_API_KEY>",
-    "x-rapidapi-host": "<YOUR_RAPIDAPI_HOST>",
-    "x-rapidapi-key": "<YOUR_RAPIDAPI_KEY>"
+    "x-rapidapi-key": "<YOUR_RAPIDAPI_KEY>",
+    "x-rapidapi-host": "<YOUR_RAPIDAPI_HOST>"
 }
 
 response = requests.get(url, headers=headers, params=querystring)
@@ -104,7 +101,7 @@ Our API returns the converted paper content along with metadata. Here's a sample
 
 ## 📈 Pricing and Limits
 
-Visit our [RapidAPI page](https://rapidapi.com/swift-api-swift-api-default/api/claude-3-haiku-ai) for up-to-date information on:
+Visit our [RapidAPI page](https://rapidapi.com/maxhager28/api/arxivgpt) for up-to-date information on:
 - Free tier limitations
 - Paid plan options
 - Rate limits and usage quotas
@@ -113,6 +110,6 @@ Visit our [RapidAPI page](https://rapidapi.com/swift-api-swift-api-default/api/c
 
 We're committed to providing an excellent developer experience:
 
-- Join our [Discord community](https://discord.gg/hTtb8wzgSQ) for real-time support and discussions.
+- Join our [Discord community](https://discord.gg/86efjr3a6f) for real-time support and discussions.
 
 We love developer feedback and are constantly working to improve our API. Let us know how we can serve you better!

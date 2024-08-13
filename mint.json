@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "arXivGPT",
   "logo": {
     "dark": "/logo/light.png",
     "light": "/logo/dark.png"
